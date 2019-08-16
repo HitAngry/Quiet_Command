@@ -1,28 +1,21 @@
-// const SlackBot = require('slackbots');
-// const dotenv = require('dotenv')
-
-// const bot = new SlackBot({
-//   token: process.env.TOKEN,
-//   name: process.env.NAME
-// });
-
-// bot.on('message', function(data) {
-//   if(data.type !== 'error' && data.content !== undefined) {
-//     bot.postMessageToChannel(process.env.STAFF_CHANNEL, data.content);
-//   }
-// });
-
 var express = require('express'); 
+var bodyParser = require('body-parser')
  
 // Nous définissons ici les paramètres du serveur.
 var hostname = 'localhost'; 
-var port = 3000; 
+var port = 3899; 
  
 var app = express(); 
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
  
 app.post('/', (req, res) => {
-  console.log(req);
-  res.send(200)
+  console.log(req.body);
+  res.json({
+    "response_type": "in_channel",
+    "text":"<!channel> Chute svp !"
+  })
 })
 
 // Démarrer le serveur 
