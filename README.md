@@ -1,4 +1,5 @@
-# NoiseBot
+# Quiet Command
+*Say QUIET ! in slack channel*
 
 ## Install
 Cloning repositorie and copy config-default
